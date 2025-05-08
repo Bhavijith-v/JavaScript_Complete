@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Notification</title>
+</head>
+<body>
+
+  <script>
+    let request = async () => {
+      let permission = await Notification.requestPermission();
+      console.log("Permission:", permission);
+
+      if (permission === "granted") {
+        let notification = new Notification("Title", {
+          body: "This is a notification body.",
+          icon: "https://c8.alamy.com/comp/WPNTRN/gym-icon-thin-outline-style-design-from-fitness-icons-collection-creative-gym-icon-for-web-design-apps-software-print-usage-WPNTRN.jpg",
+        });
+
+        notification.onclick = function () {
+          console.log("Notification clicked!");
+        };
+
+        notification.onerror = function () {
+          console.log("Notification error!");
+        };
+
+        notification.onclose = function () {
+          console.log("Notification closed!");
+        };
+      } else {
+        console.log("Notification permission denied.");
+      }
+    };
+
+    request();
+  </script>
+
+</body>
+</html>

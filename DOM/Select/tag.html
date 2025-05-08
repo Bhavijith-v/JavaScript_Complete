@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tag</title>
+</head>
+<body>
+    <h1>Sample Text</h1>
+
+
+    <script>
+        const tag = document.getElementsByTagName('h1')
+
+        tag[0].addEventListener('click', () => {
+            tag[0].textContent = 'Clicked!';
+        });
+    </script>
+    
+</body>
+</html>

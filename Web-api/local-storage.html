@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Local Storage</title>
+</head>
+<body>
+    <script>
+
+     localStorage.setItem("theme",dark)
+     console.log(localStorage.getItem("theme")); //get value
+
+     localStorage.removeItem("theme"); //remove value
+
+     localStorage.clear(); //clear all values
+     
+     //sessionStorage is similar to localStorage but it persists only for the current session, not across browser sessions.
+     
+     sessionStorage.setItem("theme", dark)
+     console.log(sessionStorage.getItem("theme")); //get value
+     
+     sessionStorage.removeItem("theme"); //remove value
+     
+     sessionStorage.clear(); //clear all values
+
+     console.log(localStorage.key(0));// get 1st key
+     
+
+    console.log(Object.key(localStorage)); //print keys
+
+    
+     
+     
+     //IndexedDB is a client-side database that lets you store and retrieve data locally, across multiple tabs and windows.
+     
+     //It's used when you need a more robust and complex database that needs to persist even after the page has been closed.
+     
+     //It's more complex to use and requires more code to manage, but it offers more control over the data.
+     
+     //IndexedDB is supported in all major browsers, including Chrome, Firefox, Safari, and Edge.
+     
+        
+        
+    </script>
+    
+</body>
+</html>

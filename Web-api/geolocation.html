@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Geo-Location</title>
+</head>
+<body>
+
+    <script>
+       
+
+        if (navigator.geolocation) {
+            navigator.geolocation.getCurrentPosition(onSuccess, onError);
+        }
+        function onSuccess(location) {
+    let x = location.coords.latitude;
+    let y = location.coords.longitude;
+    console.log(`Latitude: ${x}, Longitude: ${y}`);
+    document.body.innerHTML += `<p>Latitude: ${x}</p><p>Longitude: ${y}</p>`;
+}
+        function onError(error) {
+            console.log(error);
+        }
+        
+    </script>
+    
+</body>
+</html>

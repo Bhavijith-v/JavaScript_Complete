@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Drag-Drop</title>
+  <style>
+    .list {
+      width: 200px;
+      height: 200px;
+      background-color: lightgray;
+      border: 1px solid black;
+      padding: 20px;
+      margin: 20px;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .area {
+      width: 200px;
+      height: 200px;
+      background-color: lightblue;
+      border: 1px solid black;
+      padding: 20px;
+      margin: 20px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="list" draggable="true" id="item">
+    item
+  </div>
+
+  <div class="area" id="dropArea"></div>
+
+  <script>
+    const item = document.getElementById('item');
+    const dropArea = document.getElementById('dropArea');
+
+    // When dragging starts
+    item.addEventListener('dragstart', (e) => {
+      e.dataTransfer.setData("text/plain", e.target.id); // store the ID of the dragged element
+      console.log("dragstart");
+    });
+
+    // Prevent default to allow drop
+    dropArea.addEventListener('dragover', (e) => {
+      e.preventDefault();
+      console.log("dragover");
+    });
+
+    // Visual feedback
+    dropArea.addEventListener('dragenter', (e) => {
+      e.preventDefault();
+      dropArea.style.backgroundColor = "orange";
+      console.log("dragenter");
+    });
+
+    dropArea.addEventListener('dragleave', (e) => {
+      dropArea.style.backgroundColor = "lightblue";
+      console.log("dragleave");
+    });
+
+    // Handle drop
+    dropArea.addEventListener('drop', (e) => {
+      e.preventDefault();
+      const id = e.dataTransfer.getData("text/plain"); // get the ID
+      const draggedElement = document.getElementById(id);
+      dropArea.appendChild(draggedElement); // move the element
+      dropArea.style.backgroundColor = "lightblue";
+      console.log("drop");
+    });
+  </script>
+
+</body>
+</html>

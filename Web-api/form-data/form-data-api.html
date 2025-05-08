@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Form Data Api</title>
+</head>
+<body>
+
+    <script>
+
+        const formData = new FormData();
+        console.log(formData);
+
+        formData.append("name","john")
+
+        console.log(formData.get("name"));
+
+        formData.append("age",25)
+
+        console.log(formData.get("age"));
+
+        formData.delete("age")
+
+        console.log(formData.get("age"));
+
+        console.log(formData.keys());
+
+        console.log(formData.values());
+
+        console.log(formData.entries());
+
+        formData.set("company","tcs")
+        console.log(formData.get("name"));
+        
+        
+
+       
+    </script>
+    
+</body>
+</html>
