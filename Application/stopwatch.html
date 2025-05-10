@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Stopwatch</title>
+</head>
+<body>
+
+  <h2>Stopwatch</h2>
+  <div id="display">00:00:00</div>
+  <button onclick="start()">Start</button>
+  <button onclick="stop()">Stop</button>
+  <button onclick="reset()">Reset</button>
+
+  <script>
+    let startTime, interval;
+    let running = false;
+
+    function updateDisplay() {
+      const now = Date.now();
+      const elapsed = new Date(now - startTime);
+
+      const hrs = String(elapsed.getUTCHours()).padStart(2, '0');
+      const mins = String(elapsed.getUTCMinutes()).padStart(2, '0');
+      const secs = String(elapsed.getUTCSeconds()).padStart(2, '0');
+
+      document.getElementById('display').textContent = `${hrs}:${mins}:${secs}`;
+    }
+
+    function start() {
+      if (!running) {
+        startTime = Date.now() - (window.elapsedTime || 0);
+        interval = setInterval(updateDisplay, 1000);
+        running = true;
+      }
+    }
+
+    function stop() {
+      if (running) {
+        clearInterval(interval);
+        window.elapsedTime = Date.now() - startTime;
+        running = false;
+      }
+    }
+
+    function reset() {
+      clearInterval(interval);
+      document.getElementById('display').textContent = "00:00:00";
+      window.elapsedTime = 0;
+      running = false;
+    }
+  </script>
+
+</body>
+</html>

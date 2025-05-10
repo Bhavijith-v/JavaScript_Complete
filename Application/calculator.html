@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculator</title>
+</head>
+<body>
+    <input id="expr" placeholder="eg 5+3*2">
+    <button onclick="calc()">Calculate</button>
+    <p class="result"></p>
+
+
+    <script>
+        function calc(){
+            let expr = document.getElementById('expr').value;
+            let result = eval(expr);
+            document.querySelector('.result').textContent = 'Result:'+ result;
+            document.getElementById('expr').value = '';  // clear the input field after calculation.
+        }
+    </script>
+    
+</body>
+</html>

@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Time</title>
+</head>
+<body>
+    <h1>00:00:00</h1>
+
+
+    <script>
+        const clock = document.querySelector('h1');
+
+        setInterval(() => {
+            const date = new Date();
+            const hours = String(date.getHours()).padStart(2, '0');
+            const minutes = String(date.getMinutes()).padStart(2, '0');
+            const seconds = String(date.getSeconds()).padStart(2, '0');
+
+            clock.textContent = `${hours}:${minutes}:${seconds}`;
+        }, 1000);
+    </script>
+    
+</body>
+</html>
